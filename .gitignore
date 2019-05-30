@@ -1,0 +1,4 @@
+venv/
+platzi_ventas/venv/
+platzi_ventas/__pycache__/
+.vscode/
