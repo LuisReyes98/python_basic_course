@@ -101,10 +101,14 @@ a += b
 
 ```python
 hel = 'HELL' # variable publica
+
 _he = 'I am private' #variable privada
-YO = ' constante' #variable constante , no se reasigna 
+
+YO = ' constante' #variable constante , no se reasigna
+
 __que = 'variable' #convencion de que la variables es final no debe ser modificada por ningun motivo
 ```
+
 ### Operadores logicos
 
 igual
