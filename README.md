@@ -263,7 +263,17 @@ normal_set.add('d')
 normal_set.remove('a')
 ```
 
-## Curiosidades
+### recorriendo diccionarios
+
+```python
+for key in dict.iterkeys(): ...
+
+for value in dict.itervalues(): ...
+
+for key, value in dict.iteritems(): ...
+```
+
+## Utilidades
 
 ### Dir
   
