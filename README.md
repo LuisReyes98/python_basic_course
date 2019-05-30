@@ -253,7 +253,8 @@ f = ('h','d','d')
 listas que no pueden tener elementos duplicados
 
 ```python
-normal_set = set(["a", "b","c"])
+normal_set = {} #se puede inicializar así
+normal_set = set(["a", "b","c"]) # o con el keyword
 normal_set.add('d')
 normal_set.remove('a')
 ```
@@ -290,3 +291,121 @@ cadena.format(age=26, name="John")
 
 para en un entorno virtual instalar la app
 ```pip install --editable .```
+
+## Errores
+
+aventar errores en python con el keyword ```raise```
+
+try except else finally
+
+```python
+try:
+    # trata de ejecutar el codigo
+    # se recomienda una unica linea dentro de try
+    pass
+except expression as identifier: # se especifico del tipo de error que se desea atrapar
+    #hubo errore ejecuta este codigo
+    pass
+else:
+    #no hubo errores ejecuta este codgio
+    pass
+finally:
+    # siempre ejecuta este codigo
+    pass
+```
+
+Links utiles:
+
+[Errores newbies en pythons](https://www.dropbox.com/s/cqsxfws52gulkyx/drawing.pdf)
+[python 3 exceptions](http://docs.python.org.ar/tutorial/3/errors.html)
+[python 2 exceptions](http://docs.python.org.ar/tutorial/3/errors.html)
+
+### Context Managers
+
+```python
+with open(‘some_file.txt’) as f:
+    lines = f.readlines()
+```
+
+```python
+class CustomOpen(object):
+    def __init__(self, filename):
+        self.file = open(filename)
+
+    def __enter__(self):
+        return self.file
+
+    def __exit__(self, ctx_type, ctx_value, ctx_traceback):
+        self.file.close()
+
+with CustomOpen('file') as f:
+    contents = f.read()
+```
+
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def custom_open(filename):
+    f = open(filename)
+    try:
+        yield f
+    finally:
+        f.close()
+
+with custom_open('file') as f:
+    contents = f.read()
+```
+
+### Iterators and generators
+
+```python
+for i in range(10):
+    print(i)
+```
+
+```python
+def fibonacci(max):
+    a, b = 0, 1
+    while a < max:
+        yield a
+        a, b = b, a+b
+```
+
+```python
+  fib1 = fibonacci(20)
+  fib_nums = [num for num in fib1]
+  #...
+  double_fib_nums = [num * 2 for num in fib1] # no va a funcionar
+  double_fib_nums = [num * 2 for num in fibonacci(30)] # sí funciona
+```
+
+## Debes seguir PEPs
+
+- PEP 8: Estilo de escritura de python ( muy importante)
+- PEP257 python docstring
+- PEP20 import this: el Zen de python
+
+## Zen of python
+
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
